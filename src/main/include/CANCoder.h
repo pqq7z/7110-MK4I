@@ -7,7 +7,7 @@
 namespace FRC7110{
     class CANcode {
         public:
-            explicit CANcode(const int id, std::string str, const double offset) : m_Encoder(id, str), m_offset(offset){};
+            explicit CANcode(const int id, std::string busName, const double offset) : m_Encoder(id, busName), m_offset(offset){};
             //string is because cancoder wants the name of bus. I think this can be found on Phoenix tuner
 
             void SetDistancePerPulse(const double DPP){}

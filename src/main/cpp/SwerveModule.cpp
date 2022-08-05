@@ -44,19 +44,26 @@ void SwerveModule::SetDesiredState(
       referenceState, units::radian_t(m_turningEncoder.Get()));
 
   // Calculate the drive output from the drive PID controller.
-  const auto driveOutput = m_drivePIDController.Calculate(
-      m_driveMotor.GetRate(), state.speed.value());
+    const auto driveOutput = m_drivePIDController.Calculate(
+        m_driveMotor.GetRate(), state.speed.value());
 
-  const auto driveFeedforward = m_driveFeedforward.Calculate(state.speed);
+    const auto driveFeedforward = m_driveFeedforward.Calculate(state.speed);
 
-  // Calculate the turning motor output from the turning PID controller.
-  const auto turnOutput = m_turningPIDController.Calculate(
-      units::radian_t(m_turningEncoder.Get()), state.angle.Radians());
+    // Calculate the turning motor output from the turning PID controller.
+    const auto turnOutput = m_turningPIDController.Calculate(
+        units::radian_t(m_turningEncoder.Get()), state.angle.Radians());
+      
+    const auto turnFeedforward = m_turnFeedforward.Calculate(
+        m_turningPIDController.GetSetpoint().velocity);
 
-  const auto turnFeedforward = m_turnFeedforward.Calculate(
-      m_turningPIDController.GetSetpoint().velocity);
+    // Set the motor outputs.
+    if(fabs(state.speed.value()) < 0.001) {
+      m_driveMotor.SetVoltage(units::volt_t{0});
+      m_turningMotor.SetVoltage(units::volt_t{0});
+    } 
+    else {
+      m_driveMotor.SetVoltage(units::volt_t{driveOutput} + driveFeedforward);
+      m_turningMotor.SetVoltage(units::volt_t{turnOutput} + turnFeedforward);
+    }
 
-  // Set the motor outputs.
-  m_driveMotor.SetVoltage(units::volt_t{driveOutput} + driveFeedforward);
-  m_turningMotor.SetVoltage(units::volt_t{turnOutput} + turnFeedforward);
 }
