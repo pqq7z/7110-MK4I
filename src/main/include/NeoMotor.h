@@ -19,5 +19,5 @@ namespace FRC7110{
                 return mps;
             }
 
-    }; //This Is only for the Driving Motor
+    };
 }//namespace FRC7110
