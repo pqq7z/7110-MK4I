@@ -36,7 +36,7 @@ class SwerveModule {
       wpi::numbers::pi * 2_rad_per_s / 1_s;  // radians per second^2
 
   FRC7110::NeoMotor m_driveMotor;
-  rev::CANSparkMax m_turningMotor;
+  FRC7110::NeoMotor m_turningMotor;
 
   FRC7110::CANcode m_turningEncoder;
 
