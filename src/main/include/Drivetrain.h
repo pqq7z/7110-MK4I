@@ -10,7 +10,7 @@
 #include <frc/kinematics/SwerveDriveOdometry.h>
 #include <wpi/numbers>
 
-#include "pigeon_gyro.h"
+#include "Systems/pigeon_gyro.h"
 #include "SwerveModule.h"
 
 /**
@@ -31,10 +31,10 @@ class Drivetrain {
       wpi::numbers::pi};  // 1/2 rotation per second. It is unclear if this speed is accurate, it likely is not
 
  private:
-  frc::Translation2d m_frontLeftLocation{+0.381_m, +0.381_m};
-  frc::Translation2d m_frontRightLocation{+0.381_m, -0.381_m};
-  frc::Translation2d m_backLeftLocation{-0.381_m, +0.381_m};
-  frc::Translation2d m_backRightLocation{-0.381_m, -0.381_m};
+  frc::Translation2d m_frontLeftLocation{+0.31369_m, +0.31369_m};
+  frc::Translation2d m_frontRightLocation{+0.31369_m, -0.31369_m};
+  frc::Translation2d m_backLeftLocation{-0.31369_m, +0.31369_m};
+  frc::Translation2d m_backRightLocation{-0.31369_m, -0.31369_m};
 
   //driveMotorChannel, turningMotorChannel, turningEncoderChannel, offset
   SwerveModule m_frontLeft{1, 2, 3, 0};
