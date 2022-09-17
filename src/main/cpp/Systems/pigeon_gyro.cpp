@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "pigeon_gyro.h"
+#include "Systems/pigeon_gyro.h"
 
 #include <hal/FRCUsageReporting.h>
 

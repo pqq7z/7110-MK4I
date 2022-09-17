@@ -10,7 +10,7 @@
 #include <frc/kinematics/SwerveDriveOdometry.h>
 #include <wpi/numbers>
 
-#include "pigeon_gyro.h"
+#include "Systems/pigeon_gyro.h"
 #include "SwerveModule.h"
 
 /**

@@ -16,8 +16,8 @@
 #include <units/voltage.h>
 #include <wpi/numbers>
 
-#include "NeoMotor.h"
-#include "CANCoder.h"
+#include "Systems/NeoMotor.h"
+#include "Systems/CANCoder.h"
 
 class SwerveModule {
  public:
