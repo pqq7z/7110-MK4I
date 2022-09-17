@@ -11,6 +11,6 @@ CANcode::CANcode(const int ID, const double offset) : CANCoder(ID), m_offset(off
 void CANcode::SetDistancePerPulse(const double DPP) const {}
 
 double CANcode::Get() {
-  double radPos = ((GetPosition() - m_offset)/360) * 2 * wpi::numbers::pi - wpi::numbers::pi;
+  double radPos = (GetAbsolutePosition()/360) * 2 * wpi::numbers::pi - wpi::numbers::pi;
   return radPos; 
 }
