@@ -1,8 +1,9 @@
 #include "Systems/CANCoder.h"
+#include <wpi/numbers>
 
 using namespace FRC7110;
 
-CANcode::CANcode(const int ID, const double offset) : CANCoder(ID), m_offset(offset){
+CANcode::CANcode(const int ID, const double offset) : CANCoder(ID), m_offset(offset) {
   ConfigSensorInitializationStrategy(BootToAbsolutePosition);
   ConfigMagnetOffset(offset);
   printf("CANCoder: %i, reading %5.2f\n", ID, GetAbsolutePosition());

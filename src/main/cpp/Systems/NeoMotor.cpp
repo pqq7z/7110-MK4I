@@ -1,4 +1,5 @@
 #include "Systems/NeoMotor.h"
+#include <wpi/numbers>
 
 using namespace FRC7110;
 
