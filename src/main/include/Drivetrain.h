@@ -42,7 +42,7 @@ class Drivetrain {
   SwerveModule m_backLeft{7, 8, 9, 0};
   SwerveModule m_backRight{10, 11, 12, 0};
 
-  FRC7110::pigeonGyro m_gyro{0};
+  hb::pigeonGyro m_gyro{0};
 
   frc::SwerveDriveKinematics<4> m_kinematics{
       m_frontLeftLocation, m_frontRightLocation, m_backLeftLocation,

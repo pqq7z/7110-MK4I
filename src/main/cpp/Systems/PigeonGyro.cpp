@@ -1,7 +1,7 @@
 #include "Systems/PigeonGyro.h"
 
 using namespace ctre::phoenix::sensors;
-using namespace FRC7110;
+using namespace hb;
 
 pigeonGyro::pigeonGyro(int ID) {
   pigeon = new ctre::phoenix::sensors::PigeonIMU(ID);

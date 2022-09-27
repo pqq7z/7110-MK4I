@@ -35,10 +35,9 @@ class SwerveModule {
   static constexpr auto kModuleMaxAngularAcceleration =
       wpi::numbers::pi * 2_rad_per_s / 1_s;  // radians per second^2
 
-  FRC7110::NeoMotor m_driveMotor;
-  FRC7110::NeoMotor m_turningMotor;
-
-  FRC7110::CANcode m_turningEncoder;
+  hb::NeoMotor m_driveMotor;
+  hb::NeoMotor m_turningMotor;
+  hb::CANcode m_turningEncoder;
 
   frc2::PIDController m_drivePIDController{1.0, 0, 0};
   frc::ProfiledPIDController<units::radians> m_turningPIDController{
@@ -47,8 +46,4 @@ class SwerveModule {
       0.0,
       {kModuleMaxAngularVelocity, kModuleMaxAngularAcceleration}};
 
-  frc::SimpleMotorFeedforward<units::meters> m_driveFeedforward{1_V,
-                                                                3_V / 1_mps};
-  frc::SimpleMotorFeedforward<units::radians> m_turnFeedforward{
-      1_V, 0.5_V / 1_rad_per_s};
 };

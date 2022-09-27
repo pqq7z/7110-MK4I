@@ -1,7 +1,7 @@
 #include "Systems/NeoMotor.h"
 #include <wpi/numbers>
 
-using namespace FRC7110;
+using namespace hb;
 
 NeoMotor::NeoMotor(const int ID, rev::CANSparkMax::MotorType Type)
 : rev::CANSparkMax(ID, Type), rev::SparkMaxRelativeEncoder(GetEncoder()){}

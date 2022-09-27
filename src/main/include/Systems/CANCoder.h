@@ -2,7 +2,7 @@
 
 #include <ctre/phoenix.h>
 
-namespace FRC7110 {
+namespace hb {
   
   class CANcode : public CANCoder {
   
@@ -34,4 +34,4 @@ namespace FRC7110 {
 
       const double m_offset;
   };
-} // namespace FRC7110
+} // namespace hb

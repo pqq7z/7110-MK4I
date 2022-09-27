@@ -1,7 +1,7 @@
 #include "Systems/CANCoder.h"
 #include <wpi/numbers>
 
-using namespace FRC7110;
+using namespace hb;
 
 CANcode::CANcode(const int ID, const double offset) : CANCoder(ID), m_offset(offset) {
   ConfigSensorInitializationStrategy(BootToAbsolutePosition);

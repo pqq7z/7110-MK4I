@@ -3,7 +3,7 @@
 #include <frc/interfaces/Gyro.h>
 #include <ctre/phoenix/sensors/PigeonIMU.h>
 
-namespace FRC7110 {
+namespace hb {
 
   class pigeonGyro : public frc::Gyro {
   public:
@@ -45,4 +45,4 @@ namespace FRC7110 {
     mutable double m_angle;
     mutable double m_rate;
   };
-} // namespace FRC7110
+} // namespace hb

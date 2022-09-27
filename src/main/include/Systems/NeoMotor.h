@@ -2,7 +2,7 @@
 
 #include <rev/CANSparkMax.h>
 
-namespace FRC7110 {
+namespace hb {
   
   class NeoMotor : public rev::CANSparkMax, public rev::SparkMaxRelativeEncoder {
 
@@ -32,4 +32,4 @@ namespace FRC7110 {
       double GetRate();
 
   };
-} // namespace FRC7110
+} // namespace hb
