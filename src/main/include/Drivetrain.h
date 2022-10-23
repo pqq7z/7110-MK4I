@@ -25,8 +25,8 @@ class Drivetrain {
              bool fieldRelative);
   void UpdateOdometry();
 
-  static constexpr units::meters_per_second_t kMaxSpeed =
-      4.4196_mps;  // 3 meters per second
+  static constexpr units::meters_per_second_t kMaxSpeed = 1_mps;
+    //   4.4196_mps;  // 3 meters per second
   static constexpr units::radians_per_second_t kMaxAngularSpeed{
       wpi::numbers::pi};  // 1/2 rotation per second. It is unclear if this speed is accurate, it likely is not
 
@@ -37,10 +37,10 @@ class Drivetrain {
   frc::Translation2d m_backRightLocation{-0.31369_m, -0.31369_m};
 
   //driveMotorChannel, turningMotorChannel, turningEncoderChannel, offset
-  SwerveModule m_frontLeft{1, 2, 3, 0};
-  SwerveModule m_frontRight{4, 5, 6, 0};
-  SwerveModule m_backLeft{7, 8, 9, 0};
-  SwerveModule m_backRight{10, 11, 12, 0};
+  SwerveModule m_frontLeft{5, 1, 0, 0};
+  SwerveModule m_frontRight{6, 2, 1, 0};
+  SwerveModule m_backLeft{7, 3, 2, 0};
+  SwerveModule m_backRight{8, 4, 3, 0};
 
   hb::pigeonGyro m_gyro{0};
 
