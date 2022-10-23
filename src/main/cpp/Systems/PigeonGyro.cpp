@@ -14,7 +14,8 @@ double pigeonGyro::GetAngle() const {
     pigeon->GetFusedHeading(stat);
     m_angle = stat.heading;
   } 
-  return -m_angle;
+  // printf("PigeonIMU: %5.2f\n", m_angle);
+  return m_angle;
 }
 
 double pigeonGyro::GetRate() const {
