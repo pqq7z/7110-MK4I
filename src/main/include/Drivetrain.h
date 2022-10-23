@@ -28,7 +28,7 @@ class Drivetrain {
   static constexpr units::meters_per_second_t kMaxSpeed = 
       4.4196_mps;  // 3 meters per second
   static constexpr units::radians_per_second_t kMaxAngularSpeed{
-      wpi::numbers::pi};  // 1/2 rotation per second. It is unclear if this speed is accurate, it likely is not
+      2 * wpi::numbers::pi};  // 1 rotation per second. It is unclear if this speed is accurate, it likely is not
 
  private:
  #if 0

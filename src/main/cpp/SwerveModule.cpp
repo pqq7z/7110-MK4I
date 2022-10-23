@@ -65,7 +65,7 @@ void SwerveModule::SetDesiredState(
     //   m_turningMotor.Set(turnOutput);
     // }
       if (m_drivechannel == 6) printf("DriveOutput: %5.2f\n", driveOutput);
-      m_driveMotor.Set(driveOutput/16);
+      m_driveMotor.Set(driveOutput/12);
       m_turningMotor.Set(turnOutput);
     // if modules are moving without input check Robot.cpp and increase deadbands
 }
