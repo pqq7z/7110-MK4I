@@ -31,10 +31,17 @@ class Drivetrain {
       wpi::numbers::pi};  // 1/2 rotation per second. It is unclear if this speed is accurate, it likely is not
 
  private:
+ #if 0
   frc::Translation2d m_frontLeftLocation{+0.31369_m, +0.31369_m};
   frc::Translation2d m_frontRightLocation{+0.31369_m, -0.31369_m};
   frc::Translation2d m_backLeftLocation{-0.31369_m, +0.31369_m};
   frc::Translation2d m_backRightLocation{-0.31369_m, -0.31369_m};
+ #else
+  frc::Translation2d m_frontLeftLocation{+0.31369_m, -0.31369_m};
+  frc::Translation2d m_frontRightLocation{+0.31369_m, +0.31369_m};
+  frc::Translation2d m_backLeftLocation{-0.31369_m, -0.31369_m};
+  frc::Translation2d m_backRightLocation{-0.31369_m, +0.31369_m};
+ #endif
 
   //driveMotorChannel, turningMotorChannel, turningEncoderChannel, offset
   SwerveModule m_frontLeft{5, 1, 0, -146.60};
