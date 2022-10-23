@@ -54,13 +54,15 @@ void SwerveModule::SetDesiredState(
       
       
     // Set the motor outputs.
-    if(fabs(state.speed.value()) < 0.001) {
+    // if(fabs(state.speed.value()) < 0.001) {
+    //   m_driveMotor.Set(0);
+    //   m_turningMotor.Set(0);
+    // } 
+    // else {
+    //   m_driveMotor.Set(driveOutput);
+    //   m_turningMotor.Set(turnOutput);
+    // }
       m_driveMotor.Set(0);
       m_turningMotor.Set(0);
-    } 
-    else {
-      m_driveMotor.Set(driveOutput);
-      m_turningMotor.Set(turnOutput);
-    }
     // if modules are moving without input check Robot.cpp and increase deadbands
 }
