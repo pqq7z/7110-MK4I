@@ -12,7 +12,7 @@
 class Robot : public frc::TimedRobot {
   public:
     void AutonomousPeriodic() override {
-    DriveWithJoystick(false);
+    m_swerve.Drive(1_mps, 0_mps, units::radians_per_second_t(0), true);
     m_swerve.UpdateOdometry();
 }
 
