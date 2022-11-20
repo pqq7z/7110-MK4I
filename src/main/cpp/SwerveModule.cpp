@@ -49,11 +49,16 @@ void SwerveModule::SetDesiredState(
   // Calculate the drive output from the drive PID controller.
     const auto driveOutput = m_drivePIDController.Calculate(
         m_driveMotor.GetRate(), state.speed.value());
+        // if(m_drivechannel == 6 && m_driveMotor.GetRate() != 0.0) printf("Rate: %5.2f  state.speed: %5.2f  driveOutput: %5.2f\n", 
+        // m_driveMotor.GetRate(), state.speed.value(), driveOutput);
 
     // Calculate the turning motor output from the turning PID controller.
     const auto turnOutput = m_turningPIDController.Calculate(
         units::radian_t(m_turningEncoder.Get()), state.angle.Radians());
       
+    const auto driveFeedforward = m_driveFeedforward.Calculate(state.speed);
+
+    units::volt_t dOut = units::volt_t(driveOutput) + driveFeedforward;
       
     // Set the motor outputs.
     // if(fabs(state.speed.value()) < 0.001) {
@@ -64,8 +69,10 @@ void SwerveModule::SetDesiredState(
     //   m_driveMotor.Set(driveOutput);
     //   m_turningMotor.Set(turnOutput);
     // }
-      if (m_drivechannel == 6) printf("DriveOutput: %5.2f\n", driveOutput);
-      m_driveMotor.Set(driveOutput/12);
+      if (m_drivechannel == 6) printf("DriveOutput: %5.2f\n", dOut);
+      // m_driveMotor.Set(std::clamp(driveOutput, 0.0, 0.3));
+      // m_driveMotor.Set(driveOutput);
+      m_driveMotor.SetVoltage(dOut);
       m_turningMotor.Set(turnOutput);
     // if modules are moving without input check Robot.cpp and increase deadbands
 }

@@ -6,21 +6,41 @@
 #include <frc/TimedRobot.h>
 #include <frc/XboxController.h>
 #include <frc/filter/SlewRateLimiter.h>
+#include <frc/Timer.h>
+#include <wpi/numbers>
 
 #include "Drivetrain.h"
 
 class Robot : public frc::TimedRobot {
   public:
+    void AutonomousInit() override {
+      printf("-----------------------------------------------\n");
+      timer.Reset();
+      timer.Start();
+    }
+
     void AutonomousPeriodic() override {
-    m_swerve.Drive(1_mps, 0_mps, units::radians_per_second_t(0), true);
-    m_swerve.UpdateOdometry();
+    #if 1
+    if(timer.Get() <= 1_s) 
+      m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(wpi::numbers::pi/2.0), true);
+    else 
+      m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(0), false);
+    #else
+      m_swerve.Drive(1_mps, 0_mps, units::radians_per_second_t(0), false);
+    #endif
+    // m_swerve.UpdateOdometry();
 }
 
+  void RobotInit() override { 
+    printf("7110-MK4I-2 v0.4 %s %s\n ", __DATE__, __TIME__);
+  }
+ 
   void TeleopPeriodic() override { DriveWithJoystick(true); }
 
  private:
   frc::XboxController m_controller{0};
   Drivetrain m_swerve;
+  frc::Timer timer;
 
   // Slew rate limiters to make joystick inputs more gentle; 1/3 sec from 0
   // to 1.

@@ -41,11 +41,13 @@ class SwerveModule {
 
   double m_drivechannel;
 
-  frc2::PIDController m_drivePIDController{0.5, 0, 0};
+  frc2::PIDController m_drivePIDController{0.5, 0.01, 0.005};
   frc::ProfiledPIDController<units::radians> m_turningPIDController{
       1.0,
       0.0,
       0.0,
       {kModuleMaxAngularVelocity, kModuleMaxAngularAcceleration}};
+    
+    frc::SimpleMotorFeedforward<units::meters> m_driveFeedforward{1_V, 3_V / 1_mps};
 
 };

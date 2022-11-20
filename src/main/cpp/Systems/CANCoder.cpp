@@ -5,8 +5,8 @@ using namespace hb;
 
 CANcode::CANcode(const int ID, const double offset) : CANCoder(ID), m_offset(offset), m_ID(ID) {
   ConfigSensorInitializationStrategy(BootToAbsolutePosition);
-  double calc = GetAbsolutePosition();
-  printf("CANCoder: %i, calc %5.2f, reading %5.2f\n", ID, (calc - 180.0), calc);
+  // double calc = GetAbsolutePosition();
+  // printf("CANCoder: %i, calc %5.2f, reading %5.2f\n", ID, (calc - 180.0), calc);
 }
 
 void CANcode::SetDistancePerPulse(const double DPP) const {}
