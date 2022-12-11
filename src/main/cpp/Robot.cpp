@@ -22,11 +22,12 @@ class Robot : public frc::TimedRobot {
     void AutonomousPeriodic() override {
     #if 1
     if(timer.Get() <= 1_s) 
-      m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(wpi::numbers::pi/2.0), true);
-    else 
+      m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(wpi::numbers::pi), true);
+    else
       m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(0), false);
     #else
-      m_swerve.Drive(1_mps, 0_mps, units::radians_per_second_t(0), false);
+      if (timer.Get() <= 1.5_s) m_swerve.Drive(2_mps, 0_mps, units::radians_per_second_t(0), false);
+      else  m_swerve.Drive(0_mps, 0_mps, units::radians_per_second_t(0), false);
     #endif
     // m_swerve.UpdateOdometry();
 }
