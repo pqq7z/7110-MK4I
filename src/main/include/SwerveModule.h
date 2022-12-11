@@ -48,6 +48,9 @@ class SwerveModule {
       0.0,
       {kModuleMaxAngularVelocity, kModuleMaxAngularAcceleration}};
     
-    frc::SimpleMotorFeedforward<units::meters> m_driveFeedforward{1_V, 3_V / 1_mps};
+    // static value was arrived to through testing, its the minimum voltage for motors to move. 
+    // velocity value is calculated by taking the maximum voltage of the motor(12) and dividing it by the maximum speed
+    // this essential means that for every 2.67 volts, the motor should be pushing the robot at 1 mps
+    frc::SimpleMotorFeedforward<units::meters> m_driveFeedforward{0.1_V, 2.67_V / 1_mps}; 
 
 };

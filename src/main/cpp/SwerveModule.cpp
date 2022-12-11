@@ -69,7 +69,7 @@ void SwerveModule::SetDesiredState(
     //   m_driveMotor.Set(driveOutput);
     //   m_turningMotor.Set(turnOutput);
     // }
-      if (m_drivechannel == 6) printf("DriveOutput: %5.2f\n", dOut);
+      // if (m_drivechannel == 6) printf("DriveOutput: %5.2f\n", dOut);
       // m_driveMotor.Set(std::clamp(driveOutput, 0.0, 0.3));
       // m_driveMotor.Set(driveOutput);
       m_driveMotor.SetVoltage(dOut);
