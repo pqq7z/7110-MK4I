@@ -25,8 +25,12 @@ class Drivetrain {
              bool fieldRelative);
   void UpdateOdometry();
 
+  void ResetGyro() {
+    m_gyro.Reset();
+  }
+
   static constexpr units::meters_per_second_t kMaxSpeed = 
-      /**4.4196_mps*/ 1.5_mps;  // 3 meters per second
+      /**4.4196_mps*/ 4_mps;  // 3 meters per second
   static constexpr units::radians_per_second_t kMaxAngularSpeed{
       2 * wpi::numbers::pi};  // 1 rotation per second. It is unclear if this speed is accurate, it likely is not
 

@@ -36,7 +36,13 @@ class Robot : public frc::TimedRobot {
     printf("7110-MK4I-2 v0.4 %s %s\n ", __DATE__, __TIME__);
   }
  
-  void TeleopPeriodic() override { DriveWithJoystick(true); }
+  void TeleopPeriodic() override { DriveWithJoystick(true); 
+  
+  if (m_controller.GetAButtonPressed()) {
+    m_swerve.ResetGyro();
+  }
+
+  }
 
  private:
   frc::XboxController m_controller{0};
